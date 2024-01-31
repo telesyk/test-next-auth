@@ -3,10 +3,25 @@ import Link from 'next/link'
 import { FaSignInAlt, FaSignOutAlt, FaUserCircle } from 'react-icons/fa'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 const ACTIVE_ROUTE = 'p-2 text-slate-300 bg-slate-800'
 const INACTIVE_ROUTE =
   'p-2 text-slate-500 hover:text-slate-300 hover:bg-slate-800'
+
+function UserAvatar({ image }: { image: string | undefined | null }) {
+  return (
+    <>
+      {!image ? (
+        <FaUserCircle />
+      ) : (
+        <div className="w-5 h-5 rounded-full border-2 border-slate-100">
+          <Image alt="avatar" src={image} width={16} height={16} />
+        </div>
+      )}
+    </>
+  )
+}
 
 function AuthButton() {
   const { data: session } = useSession()
@@ -16,7 +31,7 @@ function AuthButton() {
     return (
       <>
         <div className="text-bold flex gap-2 items-center">
-          <FaUserCircle />
+          <UserAvatar image={session?.user?.image} />
           {session?.user?.name}
         </div>
         <div className="pb-8 border-b-2">
