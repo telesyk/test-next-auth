@@ -1,5 +1,4 @@
 import { getServerSession } from 'next-auth'
-import { authOptions } from '../api/auth/[...nextauth]/route'
 import WhoAmIButton from './WhoAmIButton'
 
 export default async function ServerAction() {

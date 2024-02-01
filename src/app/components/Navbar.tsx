@@ -37,7 +37,7 @@ function AuthButton() {
         <div className="pb-8 border-b-2">
           <button
             onClick={() => signOut()}
-            className="bg-rose-700 hover:bg-rose-800 border-2 border-slate-200 rounded-md px-6 py-2 flex items-center gap-2"
+            className="bg-zinc-700 hover:bg-zinc-800 border-2 border-slate-200 rounded-md px-6 py-2 flex items-center gap-2"
           >
             <FaSignOutAlt />
             <span>Sign out</span>
